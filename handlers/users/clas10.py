@@ -34,7 +34,7 @@ async def show_menu(message: Message):
                              f"5. {tu5}\n"
                              f"6. {tu6}\n"
                              f"7. {tu7}\n"
-                             f"7. {tu8}\n",
+                             f"8. {tu8}\n",
                              reply_markup=menu_day_10)
 
     @dp.message_handler(Text(equals=["🔴 Среда 🔴"]))
