@@ -1,5 +1,7 @@
 from aiogram.dispatcher.filters import Command, Text
 from aiogram.types import Message, ReplyKeyboardRemove
+from environs import Env
+
 from keyboards.default import menu_day_9, menu_class
 from loader import dp
 
@@ -31,7 +33,8 @@ async def show_menu(message: Message):
                              f"4. {tu4}\n"
                              f"5. {tu5}\n"
                              f"6. {tu6}\n"
-                             f"7. {tu7}\n",
+                             f"7. {tu7}\n"
+                             f"8. {tu8}\n",
                              reply_markup=menu_day_9)
 
     @dp.message_handler(Text(equals=["🔵 Среда 🔵"]))
@@ -44,7 +47,8 @@ async def show_menu(message: Message):
                              f"4. {we4}\n"
                              f"5. {we5}\n"
                              f"6. {we6}\n"
-                             f"7. {we7}\n",
+                             f"7. {we7}\n"
+                             f"8. {we8}\n",
                              reply_markup=menu_day_9)
 
     @dp.message_handler(Text(equals=["🔵 Четверг 🔵"]))
@@ -77,47 +81,52 @@ async def show_menu(message: Message):
     async def show_menu(message: Message):
         await message.answer(f"Выберите класс", reply_markup=menu_class)
 
-date1 = ""
-mo1 = ""
-mo2 = ""
-mo3 = ""
-mo4 = ""
-mo5 = ""
-mo6 = ""
-mo7 = ""
+env = Env()
+env.read_env()
 
-date2 = ""
-tu1 = ""
-tu2 = ""
-tu3 = ""
-tu4 = ""
-tu5 = ""
-tu6 = ""
-tu7 = ""
+date1 = env.str("dateMo")
+mo1 = "Фізика"
+mo2 = "Фізика"
+mo3 = "Геометрія"
+mo4 = "Історія України"
+mo5 = "Література"
+mo6 = "Українська література"
+mo7 = "Фізкультура"
 
-date3 = ""
-we1 = ""
-we2 = ""
-we3 = ""
-we4 = ""
-we5 = ""
-we6 = ""
-we7 = ""
+date2 = env.str("dateTu")
+tu1 = "Англійська мова"
+tu2 = "Німецька мова"
+tu3 = "Російська мова"
+tu4 = "Всесвітня історія"
+tu5 = "Хімія"
+tu6 = "Алгебра"
+tu7 = "Інформатика (І)"
+tu8 = "Інформатика (І)"
 
-date4 = ""
-th1 = ""
-th2 = ""
-th3 = ""
-th4 = ""
-th5 = ""
-th6 = ""
-th7 = ""
+date3 = env.str("dateWe")
+we1 = "Фізика"
+we2 = "Біологія"
+we3 = "Основи здоров'я | Історія України"
+we4 = "Німецька мова"
+we5 = "Геометрія"
+we6 = "Українська мова"
+we7 = "Література"
+we8 = "Фізкультура"
 
-date5 = ""
-fr1 = ""
-fr2 = ""
-fr3 = ""
-fr4 = ""
-fr5 = ""
-fr6 = ""
-fr7 = ""
+date4 = env.str("dateTh")
+th1 = "Фізкультура"
+th2 = "Правознавство"
+th3 = "Трудове навчання"
+th4 = "Географія"
+th5 = "Мистецтво"
+th6 = "Українська мова"
+th7 = "Українська література"
+
+date5 = env.str("dateFr")
+fr1 = "Англійська мова"
+fr2 = "Біологія"
+fr3 = "Алгебра"
+fr4 = "Хімія"
+fr5 = "Російська мова"
+fr6 = "Інформатика (ІІ)"
+fr7 = "Інформатика (ІІ)"

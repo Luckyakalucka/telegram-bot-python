@@ -1,5 +1,7 @@
 from aiogram.dispatcher.filters import Command, Text
 from aiogram.types import Message, ReplyKeyboardRemove
+from environs import Env
+
 from keyboards.default import menu_day_6, menu_class
 from loader import dp
 
@@ -78,47 +80,50 @@ async def show_menu(message: Message):
         await message.answer(f"Выберите класс", reply_markup=menu_class)
 
 
-date1 = ""
-mo1 = ""
-mo2 = ""
-mo3 = ""
-mo4 = ""
-mo5 = ""
-mo6 = ""
-mo7 = ""
+env = Env()
+env.read_env()
 
-date2 = ""
-tu1 = ""
-tu2 = ""
-tu3 = ""
-tu4 = ""
-tu5 = ""
-tu6 = ""
-tu7 = ""
+date1 = env.str("dateMo")
+mo1 = "Фізкультура"
+mo2 = "Біологія"
+mo3 = "Російська мова"
+mo4 = "Англійська мова"
+mo5 = "Українська мова"
+mo6 = "Українська література"
+mo7 = "Інформатика (І)"
 
-date3 = ""
-we1 = ""
-we2 = ""
-we3 = ""
-we4 = ""
-we5 = ""
-we6 = ""
+date2 = env.str("dateTu")
+tu1 = "Математика"
+tu2 = "Українська мова"
+tu3 = "Література"
+tu4 = " Німецька мова"
+tu5 = "Російська мова"
+tu6 = "Основи здоров'я"
+tu7 = "ОТМ"
+
+date3 = env.str("dateWe")
+we1 = "Біологія"
+we2 = "Математика"
+we3 = "Англійська мова"
+we4 = "Географія"
+we5 = "Історія"
+we6 = "Інформатика (ІІ)"
 we7 = ""
 
-date4 = ""
-th1 = ""
-th2 = ""
-th3 = ""
-th4 = ""
-th5 = ""
-th6 = ""
-th7 = ""
+date4 = env.str("dateTh")
+th1 = "Українська мова"
+th2 = "Українська література"
+th3 = "Математика"
+th4 = "Трудове навчання"
+th5 = "Трудове навчання"
+th6 = "Фізкультура"
+th7 = "- | Українська мова"
 
-date5 = ""
-fr1 = ""
-fr2 = ""
-fr3 = ""
-fr4 = ""
-fr5 = ""
-fr6 = ""
-fr7 = ""
+date5 = env.str("dateFr")
+fr1 = "Історія"
+fr2 = "Математика"
+fr3 = "Музичне мистецтво"
+fr4 = "Німецька мова"
+fr5 = "Географія"
+fr6 = "Література"
+fr7 = "Фізкультура"
