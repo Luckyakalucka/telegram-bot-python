@@ -8,7 +8,7 @@ from loader import dp
 
 @dp.message_handler(Text(equals=["9"]))
 async def show_menu(message: Message):
-    await message.answer(f"Выбрын {message.text} класс. Выберите День недели", reply_markup=menu_day_9)
+    await message.answer(f"Выбран {message.text} класс. Выберите День недели", reply_markup=menu_day_9)
 
     @dp.message_handler(Text(equals=["🔵 Понедельник 🔵"]))
     async def get_food(message: Message):
